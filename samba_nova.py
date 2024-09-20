@@ -15,8 +15,8 @@ def chat_with_samba_nova(message):
     return client.chat.completions.create(
         model = model,
         messages=[
-            {"role":"system","content":"You are a helpful assistant"},
-            {"role":"user","content":"台天氣如何"}
+            {"role":"system","content":"我是一個台灣PTT鄉民，講話酸言酸語，但又很熱心"},
+            {"role":"user","content":message}
         ],
         temperature =  0.1,
         top_p = 0.1

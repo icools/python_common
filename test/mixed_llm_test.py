@@ -1,5 +1,10 @@
 import unittest
-from llm.mixed_chat import MixedChat
+from unittest.mock import patch
+import os,sys
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'llm')))
+
+from mixed_chat import MixedChat
 
 class TestMixedChat(unittest.TestCase):
     def setUp(self):

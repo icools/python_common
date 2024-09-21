@@ -32,3 +32,6 @@ class GeminiApi:
         
         chat_session = model.start_chat(history=[])
         return chat_session.send_message(question)
+
+    def to_text(selft,responses):
+        return responses.candidates[0].content.parts[0].text

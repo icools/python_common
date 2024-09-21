@@ -22,15 +22,19 @@ class MixedLlm:
     def call_gemini_flash(self, question):
         gemini_api = GeminiApi()
         response = gemini_api.call_gemini_flash(question, self.responses)
-        self.responses["gemini_flash"] = response.choices[0].message.content.strip()
+        return response.choices[0].message.content.strip()
 
     def summarize_responses(self, question):
-        return f"總結回答：{self.responses}"
+        combined_responses = f'以下是不同模型對於問題 "{question}" 的回答：\n\n'
+        for model_name, answer in self.responses.items():
+            combined_responses += f'模型（{model_name}）：\n{answer}\n\n'
+        combined_responses += "請對以上回答進行總結，並生成最終的回答，請使用繁體中文，並且加上你自己的總結後的觀點，詳細一點，不需要描述是誰回答的，請你重新再根據整個回答仔細地整理一次。"
+        response = self.call_gemini_flash(combined_responses)
+        return response.choices[0].message.content.strip()
 
     def mixed_chat(self, question):
         self.threads.append(threading.Thread(target=self.call_samba_nova, args=(question,)))
         self.threads.append(threading.Thread(target=self.call_groq, args=(question,)))
-        #self.threads.append(threading.Thread(target=self.call_gemini_flash, args=(question,)))
 
         for t in self.threads:
             t.start()

@@ -1,4 +1,5 @@
 import unittest
+import os
 from llm.gemini_api import GeminiApi, GeminiModel
 
 class TestGeminiApi(unittest.TestCase):

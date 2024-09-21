@@ -21,16 +21,16 @@ class MixedLlm:
 
     def call_gemini_flash(self, question):
         gemini_api = GeminiApi()
-        gemini_api.call_gemini_flash(question, self.responses)
+        response = gemini_api.call_gemini_flash(question, self.responses)
+        self.responses["gemini_flash"] = response.choices[0].message.content.strip()
 
     def summarize_responses(self, question):
-        # 假設這裡有一個總結回應的邏輯
         return f"總結回答：{self.responses}"
 
     def mixed_chat(self, question):
         self.threads.append(threading.Thread(target=self.call_samba_nova, args=(question,)))
         self.threads.append(threading.Thread(target=self.call_groq, args=(question,)))
-        self.threads.append(threading.Thread(target=self.call_gemini_flash, args=(question,)))
+        #self.threads.append(threading.Thread(target=self.call_gemini_flash, args=(question,)))
 
         for t in self.threads:
             t.start()

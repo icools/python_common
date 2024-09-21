@@ -4,14 +4,14 @@ import time
 import os
 
 def log_to_google_sheet(message):
-    log_to_google_sheet(
+    log_to_google_sheet_with(
         sheet_id = os.getenv("GOOGLE_SHEET_ID"),
         cookie = os.getenv("GOOGLE_SHEET_COOKIE"), 
         fbzx = os.getenv("GOOGLE_SHEET_FBZX"),
         message = message
     )
 
-def log_to_google_sheet(sheet_id,cookie,fbzx,message):
+def log_to_google_sheet_with(sheet_id,cookie,fbzx,message):
     url = f'https://docs.google.com/forms/d/e/{sheet_id}/formResponse'
     headers = {
         'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',

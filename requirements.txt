@@ -1,1 +1,3 @@
 openai
+groq
+google-generativeai

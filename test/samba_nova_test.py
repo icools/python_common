@@ -1,6 +1,9 @@
 import unittest
 from unittest.mock import patch
-from llm.samba_nova import chat_with_samba_nova
+import os,sys
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'llm')))
+from samba_nova import chat_with_samba_nova
 
 class TestSambaNova(unittest.TestCase):
     def test_chat(self):

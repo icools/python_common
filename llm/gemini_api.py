@@ -8,7 +8,7 @@ from dataclasses import dataclass
 class GeminiModel(Enum):
     GEMINI_1_5_FLASH_EXP_0827 = "gemini-1.5-flash-exp-0827"
     GEMINI_1_5_FLASH = "gemini-1.5"
-    #GEMINI_1_5_PRO = "gemini-1.5-pro"
+    GEMINI_1_5_PRO = "gemini-1.5-pro"
     #GEMINI_1_5_PRO_EXP_0827 = "gemini-1.5-pro-exp-0827"
     GEMINI_1_5_FLASH_8B_EXP_0827 = "gemini-1.5-flash-8b-exp-0827"
 

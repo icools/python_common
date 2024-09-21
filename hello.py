@@ -1,5 +1,5 @@
 from typing import Final
-from samba_nova import chat_with_samba_nova
+from llm.samba_nova import chat_with_samba_nova
 
 def chat(message):
     return chat_with_samba_nova(message)

@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch
-from samba_nova import chat_with_samba_nova
+from llm.samba_nova import chat_with_samba_nova
 
 class TestSambaNova(unittest.TestCase):
     def test_chat(self):

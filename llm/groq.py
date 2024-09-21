@@ -1,3 +1,4 @@
+# groq.py
 from groq import Groq
 import os
 
@@ -6,7 +7,7 @@ class GroqApi:
         self.api_key = os.getenv("GROQ_KEY")
         self.client = Groq(api_key=self.api_key)
 
-    def call_gemma(self, question, responses):
+    def call_gemma(self, question):
         print("groq gemma2 thinking...")
         
         completion = self.client.chat.completions.create(

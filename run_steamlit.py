@@ -8,5 +8,17 @@ question = st.text_input("請輸入您的問題：")
 if st.button("提交"):
     mixed_llm = MixedLlm()
     final_answer = mixed_llm.mixed_chat(question)
+    
     st.write("最終回答：")
     st.write(final_answer)
+    
+    with st.expander("查看各模型回應"):
+        if "groq" in mixed_llm.responses:
+            st.write("Groq 回應：")
+            st.write(mixed_llm.responses["groq"])
+        if "samba_nova" in mixed_llm.responses:
+            st.write("Samba Nova 回應：")
+            st.write(mixed_llm.responses["samba_nova"])
+        if "gemini_flash" in mixed_llm.responses:
+            st.write("Gemini Flash 回應：")
+            st.write(mixed_llm.responses["gemini_flash"])

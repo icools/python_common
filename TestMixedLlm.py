@@ -5,7 +5,7 @@ class TestMixedLlm(unittest.TestCase):
 
     def test_mixed_chat(self):
         mixed_llm = MixedLlm()
-        question = "請問今天的天氣如何？"
+        question = "到底是公蝦小還是母蝦小？"
 
         final_answer = mixed_llm.mixed_chat(question)
         summeries = mixed_llm.summarize_responses(question)
@@ -16,6 +16,7 @@ class TestMixedLlm(unittest.TestCase):
         self.assertTrue(mixed_llm.responses["samba_nova"])
         self.assertTrue(mixed_llm.responses["groq"])
         self.assertTrue(summeries)
+        print(summeries)
 
 if __name__ == '__main__':
     unittest.main()

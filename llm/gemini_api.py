@@ -1,6 +1,6 @@
 import os
-import genai
 from enum import Enum
+import google.generativeai as genai
 
 class GeminiModel(Enum):
     GEMINI_1_5_FLASH_EXP_0827 = "gemini-1.5-flash-exp-0827"
@@ -18,7 +18,7 @@ class GeminiApi:
         GEMINI_KEY = os.getenv("GEMINI_KEY")
         genai.configure(api_key=GEMINI_KEY)
 
-    def call_gemini_flash(self, question, responses, generation_config=None):
+    def call_gemini_flash(self, question, generation_config=None):
         print("gemini flash thinking...")
         
         if generation_config is None:

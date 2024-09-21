@@ -36,17 +36,27 @@ class GeminiApi:
         key = os.getenv("GEMINI_KEY")
         genai.configure(api_key = key)
 
+    def call_gemini_flash_1_5_8B(self, question):
+        return self.call_gemini_flash(
+            question, 
+            gemini_model = GeminiModel.GEMINI_1_5_FLASH_8B_EXP_0827
+        )
+
+    def call_gemini_flash_1_5_exp(self, question):
+        return self.call_gemini_flash(
+            question, 
+            gemini_model = GeminiModel.GEMINI_1_5_FLASH_EXP_0827
+        )
+    
+    # TODO rename 
     def call_gemini_flash(
         self, 
         question, 
-        generation_config=None,
-        gemini_model=GeminiModel.GEMINI_1_5_FLASH_8B_EXP_0827,
+        generation_config = DEFAULT_GENERATION_CONFIG,
+        gemini_model = GeminiModel.GEMINI_1_5_FLASH_8B_EXP_0827,
         safy_settings = DEFAULT_SAFETY_SETTINGS):
         
         print("gemini flash thinking...")
-        
-        if generation_config is None:
-            generation_config = self.DEFAULT_GENERATION_CONFIG
         
         model = genai.GenerativeModel(
             model_name = gemini_model.value,

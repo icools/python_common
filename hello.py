@@ -1,9 +1,8 @@
-from typing import Final
-from llm.samba_nova import chat_with_samba_nova
+from llm.mixed_llm import MixedLlm
 
-def chat(message):
-    return chat_with_samba_nova(message)
-
-content: Final = chat("到底是公蝦小還是母蝦小").choices[0].message.content
-
-print(content)
+if __name__ == "__main__":
+    question = input("請輸入您的問題：")
+    mixed_llm = MixedLlm()
+    final_answer = mixed_llm.mixed_chat(question)
+    print("最終回答：")
+    print(final_answer)

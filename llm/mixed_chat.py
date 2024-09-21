@@ -76,7 +76,7 @@ class MixedChat:
         conversation = []
         for model_name, model_func in self.models:
             character = self.generate_character()
-            prompt = f"問題是{question},你的角色是{character},直接用繁體中文回答我的問題"
+            prompt = f"問題是{question},你的角色是{character},直接用繁體中文回答我的問題，並且用台灣PTT鄉民的口氣回答:"
             response = model_func(prompt)
             conversation.append(f"{character} ({model_name}) 回應: {response}")
             self.responses.append({

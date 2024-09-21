@@ -1,5 +1,5 @@
 import streamlit as st
-import llm.mixed_chat as MixedChat
+from llm.mixed_chat import MixedChat
 
 if __name__ == "__main__":
     st.title("混合 LLM 問答系統")

@@ -4,7 +4,7 @@ import random
 
 from llm.groq import GroqApi, GroqModel
 from llm.samba_nova import chat_with_samba_nova
-from llm.gemini_api import GeminiApi
+from llm.gemini_api import GeminiApi,GeminiModel
 
 class MixedChat:
     def __init__(self):
